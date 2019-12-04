@@ -2,17 +2,35 @@ const request = require("request-promise");
 const cheerio = require("cheerio");
 
 const url = "https://www.laguardiaairport.com/to-from-airport/parking";
+// const url = "https://sfbay.craigslist.com/d/software-qa-dba-etc/";
+
+// const scrapeResult = {
+//     terminal_a: ,
+//     terminal_b: ,
+//     terminal_c: ,
+//     datePosted:
+// };
 
 async function scrapeLaGuardiaParking() {
   try {
     const htmlResult = await request.get(url);
     console.log(htmlResult);
+    // const $ = await cheerio.load(htmlResult);
   } catch (err) {
     console.error(err);
   }
 }
 
 scrapeLaGuardiaParking();
+
+// ------------- WORKING IN BROWSER --------------
+
+// y = []
+// var x = document.querySelectorAll(".terminal-percentage");
+// for (var i=0;i<x.length;i++) {
+//     console.log(x[i].innerText);
+//     y.push(x[i].innerText);
+// };
 
 // ------------- CODE FOR GOOGLE DRIVE --------------
 
