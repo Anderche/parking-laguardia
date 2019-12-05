@@ -2,7 +2,6 @@ const request = require("request-promise");
 const cheerio = require("cheerio");
 
 const url = "https://www.laguardiaairport.com/to-from-airport/parking";
-// const url = "https://sfbay.craigslist.com/d/software-qa-dba-etc/";
 
 // const scrapeResult = {
 //     terminal_a: ,
@@ -14,8 +13,15 @@ const url = "https://www.laguardiaairport.com/to-from-airport/parking";
 async function scrapeLaGuardiaParking() {
   try {
     const htmlResult = await request.get(url);
-    console.log(htmlResult);
-    // const $ = await cheerio.load(htmlResult);
+    const $ = await cheerio.load(htmlResult);
+
+    $(".terminal-percentage").each((index, element) => {
+      console.log(
+        $(element)
+          .text()
+          .trim()
+      );
+    });
   } catch (err) {
     console.error(err);
   }
